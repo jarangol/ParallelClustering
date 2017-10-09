@@ -13,8 +13,9 @@ name = MPI.Get_processor_name()
 
 
 
-def create_set(infile):
+def create_set(file):
     items = set()
+    infile = open(file, 'r')
     for line in infile:
         for word in line.split(' '):
             res = re.sub('[^A-Za-z0-9]+', '', word)
@@ -33,6 +34,4 @@ for j in range(rank,len(docs)):
     print docs[rank]," comparado con ",docs[j], "rank ",rank
     set1 = create_set(docs[rank])
     set2 = create_set(docs[j])
-    jaccard(set1,set2)
-
-
+    print jaccard(set1,set2)
