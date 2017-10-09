@@ -1,5 +1,9 @@
+import glob
 import re
-infile = open('William Wordsworth___The Prose Works of William Wordsworth.txt', 'r')
+
+files = glob.glob("./*.txt")
+print(files)
+infile = open(files[1], 'r')
 # Mostramos por pantalla lo que leemos desde el fichero
 
 items = set()
@@ -13,7 +17,7 @@ infile.close()
 
 
 
-infile = open('John Bunyan___The Works of John Bunyan.txt', 'r')
+infile = open(files[3], 'r')
 # Mostramos por pantalla lo que leemos desde el fichero
 
 items2 = set()
@@ -33,6 +37,7 @@ print(union)
 print("intersection")
 print(intersection)
 
-result = (intersection/float(union))
+result = (intersection/float(union))*100
 print("result")
 print(result)
+print("----------")
