@@ -8,6 +8,7 @@ infile = open(files[1], 'r')
 
 items = set()
 
+
 for line in infile:
     for word in line.split(' '):
         res = re.sub('[^A-Za-z0-9]+', '', word)
