@@ -29,7 +29,7 @@ def jaccard(set1,set2):
 
 
 for j in range(rank,len(docs)):
-    # set1 = create_set(docs[rank])
     print rank," comparado con ",j, " rank ",rank
+    # set1 = create_set(docs[rank])
     # set2 = create_set(docs[j])
-    # jaccard(set1,set2)
+    # print jaccard(set1,set2)

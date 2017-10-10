@@ -9,5 +9,5 @@ CORES=$(nproc)
 TEST=1
 #mpiexec -np ${CORES} python ./hello_world${EXAMPLE}.py
 # mpiexec -np 4 python ./test${TEST}.py
-mpiexec -np 4 python ./serial.py
+python ./serial.py
 # mpiexec -np 4 python ./paralelo.py
