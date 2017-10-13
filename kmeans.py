@@ -36,3 +36,16 @@ def asignar():
         print "menor: ",dists[np.argmin(dists)]," en ",menor
     print C2
     return C2
+
+def mover():
+    centroids = []
+    for k in range(K):
+        ks = []
+        for c in range(len(C2)):
+            if C2[c] == k:
+                ks.append(X[c])
+        print "k ",k," ks ",ks
+        if len(ks)>0:
+            mean =  np.mean(ks,axis=0)
+        print "centroide ",k," movido de ",centroids[k]," a ",mean
+        centroids[k]=mean
