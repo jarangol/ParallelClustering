@@ -21,9 +21,10 @@ def create_array(inp):
     infile = open(inp, 'r')
     doc_words = []
     for line in infile:
-        for word in line.split('\s*'):
+        for word in line.split(' '):
             res = re.sub('[^A-Za-z0-9]+', '', word)
-            doc_words.append(res.lower())
+            if res!='':
+                doc_words.append(res.lower())
     infile.close()
     return doc_words
 
@@ -32,19 +33,17 @@ for i in range(docs_size):
     docs_arrays.append(create_array(docs[i]))
 
 tiempo_inicial = time()
-print docs_arrays
+
 # el set de todas las palabras
 superset = set()
-print  superset
 sets = []
 for i in range(docs_size):
-    print "el set ",set(docs_arrays[i])
     set_doc = set(docs_arrays[i])
     sets.append(set_doc-stop_words)
     superset = superset.union(set_doc)
 
-print  superset
 
+print superset
 matriz = npy.zeros((docs_size,len(superset)))
 for i in range(docs_size):
     for j,palabra in enumerate(superset):
