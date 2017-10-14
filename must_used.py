@@ -4,6 +4,7 @@ import sys
 infile = open('must_used.txt', 'r')
 array = []
 for line in infile:
+    print line
     array.append(line)
 
 sys.stdout.write('[')
