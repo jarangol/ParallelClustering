@@ -16,13 +16,13 @@ def kMeans(X, K, maxIters = 10):
 def asignar(X,centroids):
     C2 = []
     for xi in X:
-        print "xi",xi
+        # print "xi",xi
         dists = []
         for ci in centroids:
-            print "ci",ci
+            # print "ci",ci
             dist = np.linalg.norm(np.array(xi)-np.array(ci))
             dists.append(dist)
-            print "dist ",dist
+            # print "dist ",dist
         menor = np.argmin(dists)
         C2.append(menor)
         # print "menor: ",dists[np.argmin(dists)]," en ",menor
@@ -38,19 +38,20 @@ def mover(centroids,K,C):
         # print "k ",k," ks ",ks
         if len(ks)>0:
             mean =  np.mean(ks,axis=0)
-            # print "centroide ",k," movido de ",centroids[k]," a ",mean
+            print "centroide ",k," movido de ",centroids[k]," a ",mean
+            centroids[k] = mean
         # else:
             # print "centroide sigue en la posicion ",centroids[k]
     # print "centroides quedaron ",centroids
     return centroids
 
-# K = 1
+K = 1
 #
 # X = [[ 23.,  24.,  18.,  22.,   0.,  29.],
 #  [  0. ,  0. ,  1. ,  0.  , 0.  , 0.],
 #  [  0. ,  0.  , 1. ,  1. ,  0. ,  0.],
 #  [  0. ,  0. ,  0. ,  0. ,  1. ,  0.]]
-# # X = [[ 0.33333333, 0.375, 0.45833333, 0.0, 0.25],[1.0, 0.5, 1.0, 1.0, 0.0 ],
-#     #  [2.0, 0.2, 0.0, 1.0, 0.3 ],[0.01, 1.0, 0.2, 1.0, 0.0 ],[0.7, 0.6, 0.5, 1.0, 0.0 ]]
-# print "K: ",K,"X: ",X
-# print "result: ",kMeans(X,K)
+X = [[ 0.33333333, 0.375, 0.45833333, 0.0, 0.25],[1.0, 0.5, 1.0, 1.0, 0.0 ],
+     [2.0, 0.2, 0.0, 1.0, 0.3 ],[0.01, 1.0, 0.2, 1.0, 0.0 ],[0.7, 0.6, 0.5, 1.0, 0.0 ]]
+print "K: ",K,"X: ",X
+print "result: ",kMeans(X,K)
