@@ -1,5 +1,10 @@
 #El serial
 import glob,re
+import numpy as npy
+import sys
+import pylab as plt
+import numpy as np
+plt.ion()
 
 must_used = set(["the","be","and","of","a","in","to","have","to","it","I","that","for","you","he",
     "with","on","do","say","this","they","at","but","we","his","from","that","not",
@@ -10,9 +15,15 @@ must_used = set(["the","be","and","of","a","in","to","have","to","it","I","that"
     "its","our","two","more","these","want","way","look","first","also","new","because",
     "day","more","use","no","man","find","here","thing","give","many","well"])
 
-
 # docs = glob.glob("./*.txt")
-docs = glob.glob("./docs/*.txt")
+docs = glob.glob("./dos/*.txt")
+
+size = (len(docs))
+
+group1 = set()
+group1 = set()
+
+jaccard_matriz = npy.zeros((size,size))
 
 def create_set(inp):
     infile = open(inp, 'r')
@@ -30,9 +41,31 @@ def jaccard(set1,set2):
     result = (intersection / float(union))
     return result
 
-for i in range(len(docs)):
-    for j in range(i,len(docs)):
-        print i," comparado con ",j
-        # set1 = create_set(docs[i])
-        # set2 = create_set(docs[j])
-        # jaccard(set1,set2)
+def kMeans(X, K, maxIters = 4):
+
+    centroids = X[npy.random.choice(npy.arange(len(X)), K), :]
+    for i in range(maxIters):
+        # Cluster Assignment step
+        C = npy.array([npy.argmin([npy.dot(x_i-y_k, x_i-y_k) for y_k in centroids]) for x_i in X])
+        # Move centroids step
+        centroids = [X[C == k].mean(axis = 0) for k in range(K)]
+    return npy.array(centroids) , C
+
+for i in range(0,5):
+    for j in range(0,5):
+
+        set1 = create_set(docs[i])
+        set2 = create_set(docs[j])
+        jaccard_matriz[i][j] = jaccard(set1,set2)
+    print i
+
+for fila in range(len(jaccard_matriz)):
+    for col in range(len(jaccard_matriz)):
+        sys.stdout.write(str('{:^1.2f}'.format(jaccard_matriz[fila][col])))
+        sys.stdout.write("   ")
+    print  "\n"
+
+print docs
+centroids, C = kMeans(jaccard_matriz, K = 2)
+print centroids
+print C

@@ -17,10 +17,7 @@ docs = glob.glob("./docs/*.txt")
 docs_size = 100
 # print docs
 
-comm = MPI.COMM_WORLD
-rank = comm.rank
-size = comm.size
-name = MPI.Get_processor_name()
+
 
 jaccard_matriz = npy.zeros((docs_size,docs_size))
 
@@ -43,22 +40,31 @@ def jaccard(set1,set2):
 
 tiempo_inicial = time()
 share = []
+# if rank!=3:
 for i in range(rank,docs_size,size):
-
-    for j in range(docs_size):
+    for j in range(i+1,docs_size):
         set1 = create_set(docs[i])
         set2 = create_set(docs[j])
-        c = jaccard(set1,set2)
+        c = jaccard(set1-must_used,set2-must_used)
         share.append([i,j,c])
 
+comm.send(share, dest=3)
 
+if rank==3:
+    matriz = npy.ones((docs_size,docs_size))
+    response = []
+    for i in range(size):
+        response.append(comm.recv(source=i))
+
+    for i in range(len(response)):
+        for j in range(len(response[i])):
+            f = response[i][j][0]
+            c = response[i][j][1]
+            matriz[f][c] = response[i][j][2]
+            matriz[c][f] = response[i][j][2]
+
+    print matriz
 tiempo_final = time()
 
 tiempo_ejecucion = tiempo_final - tiempo_inicial
 print 'El tiempo de ejecucion fue:',tiempo_ejecucion/60 #En segundos
-#     comm.send(share, dest=3)
-#
-# if rank==3:
-#     print comm.recv(source=0)
-#     print comm.recv(source=1)
-#     print comm.recv(source=2)

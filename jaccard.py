@@ -1,5 +1,6 @@
 import glob
 import re
+import numpy as npy
 
 files = glob.glob("./*.txt")
 print(files)
