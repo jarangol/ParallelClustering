@@ -2,17 +2,6 @@
 '''Implementation and of K Means Clustering'''
 import numpy as np
 
-def kMeans2(X, K, maxIters = 10):
-    # generamos k centroides con valores aleatorios
-    centroides = np.random.rand(K,len(X))
-    for i in range(maxIters):
-        # Cluster Assignment step
-        C = np.array([np.argmin([np.dot(x_i-y_k, x_i-y_k) for y_k in centroids]) for x_i in X])
-        # Move centroids step
-        centroids = [X[C == k].mean(axis = 0) for k in range(K)]
-    return np.array(centroids)
-
-
 # el de nosotros
 def kMeans(X, K, maxIters = 10):
     # generamos k centroides con valores aleatorios
@@ -22,7 +11,7 @@ def kMeans(X, K, maxIters = 10):
         C = asignar(X,centroides)
         # calculamos el promedio para cada centroide
         centroides = mover(centroides,K,C)
-    return np.array(centroides)
+    return np.array(C)
 
 def asignar(X,centroids):
     C2 = []
@@ -37,7 +26,7 @@ def asignar(X,centroids):
         menor = np.argmin(dists)
         C2.append(menor)
         # print "menor: ",dists[np.argmin(dists)]," en ",menor
-    print "asiganacion quedó ",C2
+    # print "asiganacion quedó ",C2
     return C2
 
 def mover(centroids,K,C):
@@ -52,7 +41,7 @@ def mover(centroids,K,C):
             # print "centroide ",k," movido de ",centroids[k]," a ",mean
         # else:
             # print "centroide sigue en la posicion ",centroids[k]
-    print "centroides quedaron ",centroids
+    # print "centroides quedaron ",centroids
     return centroids
 
 # K = 1
