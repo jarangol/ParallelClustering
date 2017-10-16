@@ -22,9 +22,11 @@ def asignar(X,centroids):
             # print "ci",ci
             dist = np.linalg.norm(np.array(xi)-np.array(ci))
             dists.append(dist)
-            # print "dist ",dist
+        # print "dist ",dists
         menor = np.argmin(dists)
+        # print menor
         C2.append(menor)
+
         # print "menor: ",dists[np.argmin(dists)]," en ",menor
     # print "asiganacion quedó ",C2
     return C2

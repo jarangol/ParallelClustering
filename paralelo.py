@@ -29,20 +29,32 @@ docs_size = len(docs)
 # docs_size = 4
 
 def asignar(X,centroids):
-    C2 = []
-    for xi in X:
-        print "xi",xi
+    C = {}
+    for i in X:
         dists = []
         for ci in centroids:
-            print "ci",ci
-            dist = np.linalg.norm(np.array(xi)-np.array(ci))
+            # print "ci ",ci," rank ",rank
+            dist = npy.linalg.norm(npy.array(X[i])-npy.array(ci))
             dists.append(dist)
-            print "dist ",dist
-        menor = np.argmin(dists)
-        C2.append(menor)
-        # print "menor: ",dists[np.argmin(dists)]," en ",menor
-    # print "asiganacion quedó ",C2
-    return C2
+        C[i] = npy.argmin(dists)
+    # print "asignacion quedó ",C," rank ",rank
+    return C
+
+def mover(centroids,K,C):
+    for k in range(K):
+        ks = []
+        for c in range(len(C)):
+            if C[c] == k:
+                ks.append(X[c])
+        # print "k ",k," ks ",ks
+        if len(ks)>0:
+            mean =  np.mean(ks,axis=0)
+            print "centroide ",k," movido de ",centroids[k]," a ",mean
+            centroids[k] = mean
+        # else:
+            # print "centroide sigue en la posicion ",centroids[k]
+    # print "centroides quedaron ",centroids
+    return centroids
 
 def kMeans(X,K,maxIters = 10):
     centroides = []
@@ -50,14 +62,23 @@ def kMeans(X,K,maxIters = 10):
         centroides = npy.random.rand(K,len(X.values()[0]))
         print centroides
         comm.bcast(centroides, root=master)
-    centroides= comm.allgather(centroides)[3]
-    return centroides
-    # for i in range(maxIters):
-    #     pass
+    centroides= comm.allgather(centroides)[size-1]
+    # return centroides
+    for i in range(maxIters):
+        # if rank == master:
+            # print "iter ",i
         # assinacion de centroides
-        # C = asignar(X,centroides)
+        C = asignar(X,centroides)
+        comm.send(C,dest=master)
+        if rank==master:
+            for i in range(size):
+                C.update(comm.recv(source=i))
+            comm.bcast(C, root=master)
+
+        C = comm.allgather(C)[size-1]
+        centroides = mover(centroides,K,C)
         # calculamos el promedio para cada centroide
-        # centroides = mover(centroides,K,C)
+        #
     # return npy.array(C)
 
 def create_array(inp):
@@ -88,7 +109,7 @@ if rank==master:
         dataR = dataR.union(comm.recv(source=i))
     comm.bcast(dataR, root=master)
 
-superset= comm.allgather(dataR)[3]
+superset= comm.allgather(dataR)[size-1]
 
 frecuencias = {}
 for i in range(rank,docs_size,size):
@@ -105,7 +126,7 @@ for i in range(rank,docs_size,size):
 
 
 
-print kMeans(frecuencias,3) , "centroides"
+kMeans(frecuencias,3) #, "centroides"
 if rank == master:
     # generamos k centroides con valores aleatorios
     pass
@@ -113,4 +134,4 @@ if rank == master:
 
 tiempo_final = time()
 tiempo_ejecucion = tiempo_final - tiempo_inicial
-print 'El tiempo de ejecucion fue:',tiempo_ejecucion/60 #En segundos
+print 'El tiempo de ejecucion fue:',tiempo_ejecucion/60, 'rank', rank #En segundos
