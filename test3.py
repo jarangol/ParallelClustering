@@ -14,8 +14,11 @@ stop_words = set(["the","be","and","of","a","in","to","have","to","it","I","that
     "day","more","use","no","man","find","here","thing","give","many","well"])
 
 # docs = glob.glob("./*.txt")
+# docs = glob.glob("./dos/*.txt")
+# docs_size = len(docs)
+
 docs = glob.glob("./docs/*.txt")
-docs_size = 20
+docs_size = 10
 print docs
 
 def create_array(inp):
@@ -35,26 +38,26 @@ for i in range(docs_size):
 
 
 
-# # el set de todas las palabras
-# superset = set()
-# sets = []
-# for i in range(docs_size):
-#     set_doc = set(docs_arrays[i])
-#     sets.append(set_doc-stop_words)
-#     superset = superset.union(set_doc)
-#
-#
-# print superset
-# matriz = npy.zeros((docs_size,len(superset)))
-# for i in range(docs_size):
-#     for j,palabra in enumerate(superset):
-#         if palabra in sets[i]:
-#             matriz[i][j] = docs_arrays[i].count(palabra)
-#         else:
-#             matriz[i][j] = 0
-#
+# el set de todas las palabras
+superset = set()
+sets = []
+for i in range(docs_size):
+    set_doc = set(docs_arrays[i])
+    sets.append(set_doc-stop_words)
+    superset = superset.union(set_doc)
+
+
+print superset
+matriz = npy.zeros((docs_size,len(superset)))
+for i in range(docs_size):
+    for j,palabra in enumerate(superset):
+        if palabra in sets[i]:
+            matriz[i][j] = docs_arrays[i].count(palabra)
+        else:
+            matriz[i][j] = 0
+
 # kMeans(matriz, 3, maxIters = 10)
-#
+
 tiempo_final = time()
 tiempo_ejecucion = tiempo_final - tiempo_inicial
 print 'El tiempo de ejecucion fue:',tiempo_ejecucion/60 #En segundos
