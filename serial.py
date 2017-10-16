@@ -1,12 +1,10 @@
-#El serial
+from mpi4py import MPI
 import glob,re
 import numpy as npy
-import sys
-import pylab as plt
-import numpy as np
-plt.ion()
-
-must_used = set(["the","be","and","of","a","in","to","have","to","it","I","that","for","you","he",
+from time import time
+from kmeans import *
+tiempo_inicial = time()
+stop_words = set(["the","be","and","of","a","in","to","have","to","it","I","that","for","you","he",
     "with","on","do","say","this","they","at","but","we","his","from","that","not",
     "n't","by","she","or","as","what","go","their","can","who","get","if","would",
     "her","all","my","make","about","know","will","as","up","one","time","there",
@@ -17,55 +15,52 @@ must_used = set(["the","be","and","of","a","in","to","have","to","it","I","that"
 
 # docs = glob.glob("./*.txt")
 docs = glob.glob("./dos/*.txt")
+docs_size = len(docs)
 
-size = (len(docs))
+# docs = glob.glob("./dos/*.txt")
+# docs_size = 4
+# print docs
 
-group1 = set()
-group1 = set()
-
-jaccard_matriz = npy.zeros((size,size))
-
-def create_set(inp):
+def create_array(inp):
     infile = open(inp, 'r')
-    items = set()
+    doc_words = []
     for line in infile:
         for word in line.split(' '):
             res = re.sub('[^A-Za-z0-9]+', '', word)
-        items.add(res.lower())
+            if res!='':
+                doc_words.append(res.lower())
     infile.close()
-    return items
+    return doc_words
 
-def jaccard(set1,set2):
-    intersection = len(set.intersection(*[set(set1), set(set2)]))
-    union = len(set.union(*[set(set1), set(set2)]))
-    result = (intersection / float(union))
-    return result
+docs_arrays = []
+for i in range(docs_size):
+    docs_arrays.append(create_array(docs[i]))
 
-def kMeans(X, K, maxIters = 4):
 
-    centroids = X[npy.random.choice(npy.arange(len(X)), K), :]
-    for i in range(maxIters):
-        # Cluster Assignment step
-        C = npy.array([npy.argmin([npy.dot(x_i-y_k, x_i-y_k) for y_k in centroids]) for x_i in X])
-        # Move centroids step
-        centroids = [X[C == k].mean(axis = 0) for k in range(K)]
-    return npy.array(centroids) , C
 
-for i in range(0,5):
-    for j in range(0,5):
+# el set de todas las palabras
+superset = set()
+sets = []
+for i in range(docs_size):
+    set_doc = set(docs_arrays[i])
+    sets.append(set_doc-stop_words)
+    superset = superset.union(set_doc)
 
-        set1 = create_set(docs[i])
-        set2 = create_set(docs[j])
-        jaccard_matriz[i][j] = jaccard(set1,set2)
-    print i
+# print superset
+matriz = npy.zeros((docs_size,len(superset)))
+for i in range(docs_size):
+    for j,palabra in enumerate(superset):
+        # print j
+        if palabra in sets[i]:
+            matriz[i][j] = docs_arrays[i].count(palabra)
 
-for fila in range(len(jaccard_matriz)):
-    for col in range(len(jaccard_matriz)):
-        sys.stdout.write(str('{:^1.2f}'.format(jaccard_matriz[fila][col])))
-        sys.stdout.write("   ")
-    print  "\n"
 
-print docs
-centroids, C = kMeans(jaccard_matriz, K = 2)
-print centroids
+C = kMeans(matriz, 3, maxIters = 10)
 print C
+for i,centro in enumerate(C):
+    print docs[i], "pertenece al centroide ",centro
+
+
+tiempo_final = time()
+tiempo_ejecucion = tiempo_final - tiempo_inicial
+print 'El tiempo de ejecucion fue:',tiempo_ejecucion/60 #En segundos

@@ -14,12 +14,12 @@ stop_words = set(["the","be","and","of","a","in","to","have","to","it","I","that
     "day","more","use","no","man","find","here","thing","give","many","well"])
 
 # docs = glob.glob("./*.txt")
-# docs = glob.glob("./dos/*.txt")
-# docs_size = len(docs)
+docs = glob.glob("./dos/*.txt")
+docs_size = len(docs)
 
-docs = glob.glob("./docs/*.txt")
-docs_size = 10
-print docs
+# docs = glob.glob("./dos/*.txt")
+# docs_size = 4
+# print docs
 
 def create_array(inp):
     infile = open(inp, 'r')
@@ -46,17 +46,20 @@ for i in range(docs_size):
     sets.append(set_doc-stop_words)
     superset = superset.union(set_doc)
 
-
-print superset
+# print superset
 matriz = npy.zeros((docs_size,len(superset)))
 for i in range(docs_size):
     for j,palabra in enumerate(superset):
+        # print j
         if palabra in sets[i]:
             matriz[i][j] = docs_arrays[i].count(palabra)
-        else:
-            matriz[i][j] = 0
 
-# kMeans(matriz, 3, maxIters = 10)
+
+C = kMeans(matriz, 3, maxIters = 10)
+print C
+for i,centro in enumerate(C):
+    print docs[i], "pertenece al centroide ",centro
+
 
 tiempo_final = time()
 tiempo_ejecucion = tiempo_final - tiempo_inicial
