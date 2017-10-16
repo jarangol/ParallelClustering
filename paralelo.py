@@ -165,8 +165,6 @@ if rank == master:
 
     for val in resultado:
         print docs[val], "pertenece al centroide ",resultado[val]
-
-
-tiempo_final = time()
-tiempo_ejecucion = tiempo_final - tiempo_inicial
-print 'El tiempo de ejecucion fue:',tiempo_ejecucion/60, 'rank', rank #En segundos
+    tiempo_final = time()
+    tiempo_ejecucion = tiempo_final - tiempo_inicial
+    print 'El tiempo de ejecucion fue:',tiempo_ejecucion/60
