@@ -1,3 +1,4 @@
+#coding=utf-8
 from mpi4py import MPI
 import glob,re
 import numpy as npy
@@ -26,6 +27,38 @@ docs = glob.glob("./dos/*.txt")
 docs_size = len(docs)
 # docs = glob.glob("./docs/*.txt")
 # docs_size = 4
+
+def asignar(X,centroids):
+    C2 = []
+    for xi in X:
+        print "xi",xi
+        dists = []
+        for ci in centroids:
+            print "ci",ci
+            dist = np.linalg.norm(np.array(xi)-np.array(ci))
+            dists.append(dist)
+            print "dist ",dist
+        menor = np.argmin(dists)
+        C2.append(menor)
+        # print "menor: ",dists[np.argmin(dists)]," en ",menor
+    # print "asiganacion quedó ",C2
+    return C2
+
+def kMeans(X,K,maxIters = 10):
+    centroides = []
+    if rank==master:
+        centroides = npy.random.rand(K,len(X.values()[0]))
+        print centroides
+        comm.bcast(centroides, root=master)
+    centroides= comm.allgather(centroides)[3]
+    return centroides
+    # for i in range(maxIters):
+    #     pass
+        # assinacion de centroides
+        # C = asignar(X,centroides)
+        # calculamos el promedio para cada centroide
+        # centroides = mover(centroides,K,C)
+    # return npy.array(C)
 
 def create_array(inp):
     infile = open(inp, 'r')
@@ -57,8 +90,6 @@ if rank==master:
 
 superset= comm.allgather(dataR)[3]
 
-
-
 frecuencias = {}
 for i in range(rank,docs_size,size):
     doc_frec = []
@@ -70,31 +101,16 @@ for i in range(rank,docs_size,size):
         else:
             doc_frec.append(0)
     frecuencias[i] = doc_frec
-    print i," frecuencias ",frecuencias[i]
-
-#     docs_arrays[i]=create_array(docs[i])
-#
-# comm.bcast(docs_arrays, root=rank)
-#
-# res= comm.allgather(docs_arrays)
-#
-# print res, "rank: ",rank
-
-# superset = set()
-# docs_arrays = {}
-# if rank==3:
-#     for i in range(docs_size):
-#         docs_arrays[i]=create_array(docs[i])
-#     comm.bcast(docs_arrays, root=3)
-#
-# docs_arrays = comm.allgather(docs_arrays)[3]
-#
-# print  docs_arrays, "rank " , rank
+    # print i," frecuencias ",frecuencias[i]
 
 
+
+print kMeans(frecuencias,3) , "centroides"
 if rank == master:
-    print "super ",superset
+    # generamos k centroides con valores aleatorios
+    pass
+    # print "super ",superset
 
 tiempo_final = time()
 tiempo_ejecucion = tiempo_final - tiempo_inicial
-# print 'El tiempo de ejecucion fue:',tiempo_ejecucion/60 #En segundos
+print 'El tiempo de ejecucion fue:',tiempo_ejecucion/60 #En segundos
