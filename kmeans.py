@@ -45,15 +45,3 @@ def mover(centroids,X,K,C):
             # print "centroide sigue en la posicion ",centroids[k]
     # print "centroides quedaron ",centroids
     return centroids
-
-
-# K = 1
-#
-# X = [[ 23.,  24.,  18.,  22.,   0.,  29.],
-#  [  0. ,  0. ,  1. ,  0.  , 0.  , 0.],
-#  [  0. ,  0.  , 1. ,  1. ,  0. ,  0.],
-#  [  0. ,  0. ,  0. ,  0. ,  1. ,  0.]]
-# X = [[ 0.33333333, 0.375, 0.45833333, 0.0, 0.25],[1.0, 0.5, 1.0, 1.0, 0.0 ],
-#      [2.0, 0.2, 0.0, 1.0, 0.3 ],[0.01, 1.0, 0.2, 1.0, 0.0 ],[0.7, 0.6, 0.5, 1.0, 0.0 ]]
-# print "K: ",K,"X: ",X
-# print "result: ",kMeans(X,K)

@@ -1,0 +1,317 @@
+[1 1 1 0 1 0 1 1 0 1 1 0 1 1 0 1 1 1 1 1 1 1 0 1 1 1 0 1 0 1 0 1 1 1 1 0 1
+ 0 1 1 0 1 1 0 1 0 1 1 1 1 0 0 1 1 0 0 0 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1
+ 0 0 1 1 1 1 1 0 1 1 1 1 1 0 1 1 1 0 0 1 0 0 0 1 1 1 1 0 0 0 0 0 0 1 1 1 0
+ 1 1 1 1 0 0 0 0 1 1 0 1 0 1 1 1 1 0 1 0 1 0 0 1 0 1 0 0 0 0 0 0 1 0 1 0 1
+ 1 1 0 1 0 1 0 1 1 1 1 0 1 1 1 1 0 0 1 0 1 0 0 1 1 1 1 1 0 1 1 1 1 1 0 1 1
+ 1 0 1 1 0 1 0 1 1 1 1 0 0 1 1 0 1 1 1 1 2 1 1 1 0 1 1 1 0 0 1 1 1 0 1 0 1
+ 1 1 1 1 0 1 1 1 1 0 0 1 0 1 0 1 1 1 1 0 1 1 1 1 1 0 0 0 0 0 1 1 1 1 1 0 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 0 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 0 1 1 1 0 1 1
+ 1 1 1 1]
+./docs/Nathaniel Hawthorne___Monsieur du Muroir (From "Mosses From An Old Manse").txt pertenece al centroide  1
+./docs/Nathaniel Hawthorne___Other Tales and Sketches.txt pertenece al centroide  1
+./docs/Andrew Lang___Rhymes a la Mode.txt pertenece al centroide  1
+./docs/Mark Twain___Roughing It.txt pertenece al centroide  0
+./docs/Edward Stratemeyer___The Rover Boys on Snowshoe Island.txt pertenece al centroide  1
+./docs/Edgar Allan Poe___The Works of Edgar Allan Poe Volume 1.txt pertenece al centroide  0
+./docs/Daniel Defoe___An Essay Upon Projects.txt pertenece al centroide  1
+./docs/Ambrose Bierce___A Cynic Looks at Life.txt pertenece al centroide  1
+./docs/Sir Richard Francis Burton___Personal Narrative of a Pilgrimage to Al-Madinah & Meccah, Volume 2.txt pertenece al centroide  0
+./docs/P G Wodehouse___Uneasy Money.txt pertenece al centroide  1
+./docs/Mark Twain___A Double Barrelled Detective Story.txt pertenece al centroide  1
+./docs/Daniel Defoe___The Life and Most Surprising Adventures of Robinson Crusoe.txt pertenece al centroide  0
+./docs/Abraham Lincoln___Lincoln's Second Inaugural Address.txt pertenece al centroide  1
+./docs/Edmund Burke___The Works of the Right Honourable Edmund Burke, Vol. 04 (of 12).txt pertenece al centroide  1
+./docs/James Fenimore Cooper___Oak Openings.txt pertenece al centroide  0
+./docs/James Otis___An Amateur Fireman.txt pertenece al centroide  1
+./docs/Thomas Robert Malthus___An Essay on the Principle of Population.txt pertenece al centroide  1
+./docs/Thomas Carlyle___History of Friedrich II of Prussia, Volume 4.txt pertenece al centroide  1
+./docs/George Bernard Shaw___Annajanska, the Bolshevik Empress.txt pertenece al centroide  1
+./docs/Edward Stratemeyer___The Rover Boys in Business.txt pertenece al centroide  1
+./docs/P G Wodehouse___Indiscretions of Archie.txt pertenece al centroide  1
+./docs/Jacob Abbott___Rollo in Geneva.txt pertenece al centroide  1
+./docs/Harold Bindloss___A Damaged Reputation.txt pertenece al centroide  0
+./docs/Herbert Spencer___The Right To Ignore The State.txt pertenece al centroide  1
+./docs/Henry David Thoreau___On the Duty of Civil Disobedience.txt pertenece al centroide  1
+./docs/John Bunyan___Miscellaneous Pieces.txt pertenece al centroide  1
+./docs/Edward Phillips Oppenheim___The Profiteers.txt pertenece al centroide  0
+./docs/Edward Phillips Oppenheim___The New Tenant.txt pertenece al centroide  1
+./docs/Lucy Maud Montgomery___Chronicles of Avonlea.txt pertenece al centroide  0
+./docs/Jerome Klapka Jerome___All Roads Lead to Calvary.txt pertenece al centroide  1
+./docs/Emily Bronte___Wuthering Heights.txt pertenece al centroide  0
+./docs/Sir Arthur Conan Doyle___The Croxley Master.txt pertenece al centroide  1
+./docs/Robert Louis Stevenson___A Child's Garden of Verses, Version 3.txt pertenece al centroide  1
+./docs/Rudyard Kipling___Soldier Stories.txt pertenece al centroide  1
+./docs/William Wymark Jacobs___Good Intentions, Ship's Company, Part 3.txt pertenece al centroide  1
+./docs/Herbert George Wells___The Country of the Blind, And Other Stories.txt pertenece al centroide  0
+./docs/Nathaniel Hawthorne___Old Ticonderoga, A Picture of The Past.txt pertenece al centroide  1
+./docs/John Galsworthy___The Forsyte Saga, Complete.txt pertenece al centroide  0
+./docs/Thornton Waldo Burgess___The Adventures of Lightfoot the Deer.txt pertenece al centroide  1
+./docs/Samuel Taylor Coleridge___The Rime of the Ancient Mariner.txt pertenece al centroide  1
+./docs/Robert Louis Stevenson___Vailima Letters.txt pertenece al centroide  0
+./docs/Jack London___The Scarlet Plague.txt pertenece al centroide  1
+./docs/William Wymark Jacobs___Bob's Redemption, Captains All, Book 5.txt pertenece al centroide  1
+./docs/Edward Phillips Oppenheim___The Evil Shepherd.txt pertenece al centroide  0
+./docs/Charles Dickens___Charles Dickens' Children Stories.txt pertenece al centroide  1
+./docs/Harold Bindloss___Northwest!.txt pertenece al centroide  0
+./docs/Charlotte Mary Yonge___Cameos from English History, from Rollo to Edward II.txt pertenece al centroide  1
+./docs/John Ruskin___The Storm-Cloud of the Nineteenth Century.txt pertenece al centroide  1
+./docs/Nathaniel Hawthorne___The Hall of Fantasy (From "Mosses From An Old Manse").txt pertenece al centroide  1
+./docs/Rudyard Kipling___The Eyes of Asia.txt pertenece al centroide  1
+./docs/Grant Allen___Recalled to Life.txt pertenece al centroide  0
+./docs/Wilkie Collins___The Two Destinies.txt pertenece al centroide  0
+./docs/Anthony Trollope___A Ride Across Palestine.txt pertenece al centroide  1
+./docs/P G Wodehouse___The Prince and Betty.txt pertenece al centroide  1
+./docs/Robert Louis Stevenson___The Dynamiter.txt pertenece al centroide  0
+./docs/Daniel Defoe___The Life and Adventures of Robinson Crusoe Of York, Mariner, Vol. 1.txt pertenece al centroide  0
+./docs/Anthony Trollope___Dr. Wortle's School.txt pertenece al centroide  0
+./docs/Sir Walter Scott___My Aunt Margaret's Mirror.txt pertenece al centroide  1
+./docs/George Bernard Shaw___Bernard Shaw's Preface to Major Barbara.txt pertenece al centroide  1
+./docs/Jack London___The People of the Abyss.txt pertenece al centroide  1
+./docs/R M Ballantyne___Over the Rocky Mountains.txt pertenece al centroide  1
+./docs/Edward Phillips Oppenheim___A Millionaire of Yesterday.txt pertenece al centroide  0
+./docs/William Dean Howells___Emile Zola.txt pertenece al centroide  1
+./docs/William Wordsworth___Lyrical Ballads, With Other Poems, 1800, Volume 1.txt pertenece al centroide  1
+./docs/John Morley___Critical Miscellanies, Volume 2, Essay 1, Vauvenargues.txt pertenece al centroide  1
+./docs/Jacob Abbott___Rollo's Experiments.txt pertenece al centroide  1
+./docs/Andrew Lang___The Book of Dreams and Ghosts.txt pertenece al centroide  1
+./docs/John Galsworthy___A Bit O' Love.txt pertenece al centroide  1
+./docs/John Milton___Areopagitica.txt pertenece al centroide  1
+./docs/Thornton Waldo Burgess___The Adventures of Jerry Muskrat.txt pertenece al centroide  1
+./docs/John Morley___Diderot and the Encyclopædists (Vol 1 of 2).txt pertenece al centroide  1
+./docs/William Wymark Jacobs___Cupboard Love, The Lady of the Barge and Others, Part 5.txt pertenece al centroide  1
+./docs/Lyman Frank Baum___Dot and Tot of Merryland.txt pertenece al centroide  1
+./docs/G K Chesterton___The Crimes of England.txt pertenece al centroide  1
+./docs/James Fenimore Cooper___The Wing-and-Wing.txt pertenece al centroide  0
+./docs/Sir Arthur Conan Doyle___The Last Galley.txt pertenece al centroide  0
+./docs/Sir Arthur Conan Doyle___The Adventure of the Red Circle.txt pertenece al centroide  1
+./docs/Elizabeth Barrett Browning___The Poetical Works of Elizabeth Barrett Browning Volume IV.txt pertenece al centroide  1
+./docs/G K Chesterton___All Things Considered.txt pertenece al centroide  1
+./docs/John Morley___Critical Miscellanies, Volume 2, Essay 3, Condorcet.txt pertenece al centroide  1
+./docs/Thomas Henry Huxley___The Past Condition of Organic Nature.txt pertenece al centroide  1
+./docs/William Dean Howells___A Modern Instance.txt pertenece al centroide  0
+./docs/Bret Harte___Tennessee's Partner.txt pertenece al centroide  1
+./docs/Lyman Frank Baum___Aunt Jane's Nieces Out West.txt pertenece al centroide  1
+./docs/John Morley___Critical Miscellanies, Volume 3, Essay 10, Auguste Comte.txt pertenece al centroide  1
+./docs/Grant Allen___The White Man's Foot.txt pertenece al centroide  1
+./docs/Jerome Klapka Jerome___The Philosopher's Joke.txt pertenece al centroide  1
+./docs/Edward Phillips Oppenheim___The Moving Finger.txt pertenece al centroide  0
+./docs/Bret Harte___Thankful Blossom.txt pertenece al centroide  1
+./docs/Thornton Waldo Burgess___The Adventures of Prickly Porky.txt pertenece al centroide  1
+./docs/Bret Harte___Snow-Bound at Eagle's.txt pertenece al centroide  1
+./docs/Anthony Trollope___Doctor Thorne.txt pertenece al centroide  0
+./docs/Virginia Woolf___The Voyage Out.txt pertenece al centroide  0
+./docs/John Morley___Critical Miscellanies, Volume 1, Essay 5, Emerson.txt pertenece al centroide  1
+./docs/Charlotte Mary Yonge___Stray Pearls.txt pertenece al centroide  0
+./docs/Sir Arthur Conan Doyle___The Adventures of Sherlock Holmes.txt pertenece al centroide  0
+./docs/Sir Walter Scott___The Fortunes of Nigel.txt pertenece al centroide  0
+./docs/Joseph Conrad___Amy Foster.txt pertenece al centroide  1
+./docs/Oscar Wilde___Intentions.txt pertenece al centroide  1
+./docs/Edward Stratemeyer___The Rover Boys in New York.txt pertenece al centroide  1
+./docs/Hector Hugh Munro___Reginald in Russia.txt pertenece al centroide  1
+./docs/Benjamin Franklin___Autobiography of Benjamin Franklin, Version 2.txt pertenece al centroide  0
+./docs/William Dean Howells___The Landlord at Lion's Head.txt pertenece al centroide  0
+./docs/Edward Phillips Oppenheim___The Governors.txt pertenece al centroide  0
+./docs/Charlotte Mary Yonge___Abbeychurch.txt pertenece al centroide  0
+./docs/Henry Rider Haggard___Red Eve.txt pertenece al centroide  0
+./docs/Baronness Orczy___The Laughing Cavalier.txt pertenece al centroide  0
+./docs/Harold Bindloss___The Protector.txt pertenece al centroide  1
+./docs/G K Chesterton___Utopia of Usurers and other Essays.txt pertenece al centroide  1
+./docs/Zane Grey___The Last Trail.txt pertenece al centroide  1
+./docs/Charles Darwin___The Descent of Man and Selection in Relation to Sex Volume II (1st Edition).txt pertenece al centroide  0
+./docs/Nathaniel Hawthorne___Earth's Holocaust (From "Mosses From An Old Manse").txt pertenece al centroide  1
+./docs/Mark Twain___Some Rambling Notes of an Idle Excursion.txt pertenece al centroide  1
+./docs/R M Ballantyne___Erling the Bold.txt pertenece al centroide  1
+./docs/Robert Louis Stevenson___Edinburgh.txt pertenece al centroide  1
+./docs/Thomas Hardy___A Changed Man and Other Tales.txt pertenece al centroide  0
+./docs/Herbert George Wells___The Passionate Friends.txt pertenece al centroide  0
+./docs/Sir Walter Scott___Ivanhoe.txt pertenece al centroide  0
+./docs/John Ruskin___Modern Painters, Volume 1 (of 5).txt pertenece al centroide  0
+./docs/Nathaniel Hawthorne___Doctor Grimshawe's Secret.txt pertenece al centroide  1
+./docs/Nathaniel Hawthorne___Passages from a Relinquished Work (From "Mosses From An Old Manse").txt pertenece al centroide  1
+./docs/Lucy Maud Montgomery___The Golden Road.txt pertenece al centroide  0
+./docs/Daniel Defoe___The King of Pirates.txt pertenece al centroide  1
+./docs/Charlotte Mary Yonge___Heartsease.txt pertenece al centroide  0
+./docs/Ralph Waldo Emerson___Poems.txt pertenece al centroide  1
+./docs/Bret Harte___Under the Redwoods.txt pertenece al centroide  1
+./docs/John Ruskin___Selections From the Works of John Ruskin.txt pertenece al centroide  1
+./docs/John Galsworthy___A Family Man.txt pertenece al centroide  1
+./docs/Edward Phillips Oppenheim___The Box with the Broken Seals.txt pertenece al centroide  0
+./docs/Rudyard Kipling___Verses 1889-1896.txt pertenece al centroide  1
+./docs/Charles Dickens___The Letters of Charles Dickens Volume 2.txt pertenece al centroide  0
+./docs/Nathaniel Hawthorne___Biographical Stories.txt pertenece al centroide  1
+./docs/P G Wodehouse___Piccadilly Jim.txt pertenece al centroide  0
+./docs/George Bernard Shaw___Cashel Byron's Profession.txt pertenece al centroide  0
+./docs/Hector Hugh Munro___Reginald.txt pertenece al centroide  1
+./docs/George Alfred Henty___For the Temple.txt pertenece al centroide  0
+./docs/William Makepeace Thackeray___The Fatal Boots.txt pertenece al centroide  1
+./docs/Thomas Hardy___Tess of the d'Urbervilles.txt pertenece al centroide  0
+./docs/Joseph Conrad___Nostromo, A Tale of the Seaboard.txt pertenece al centroide  0
+./docs/Charlotte Mary Yonge___The Heir of Redclyffe.txt pertenece al centroide  0
+./docs/Henry James___Confidence.txt pertenece al centroide  0
+./docs/Jack London___The Iron Heel.txt pertenece al centroide  0
+./docs/Louisa May Alcott___Rose in Bloom.txt pertenece al centroide  0
+./docs/Hamlin Garland___The Forester's Daughter.txt pertenece al centroide  1
+./docs/James Fenimore Cooper___Ned Myers.txt pertenece al centroide  0
+./docs/James Otis___The Adventures of a Country Boy at a Country Fair.txt pertenece al centroide  1
+./docs/Louisa May Alcott___Work: A Story of Experience.txt pertenece al centroide  0
+./docs/Joseph Conrad___Falk.txt pertenece al centroide  1
+./docs/Charlotte Mary Yonge___A Book of Golden Deeds.txt pertenece al centroide  1
+./docs/George Bernard Shaw___The Miraculous Revenge.txt pertenece al centroide  1
+./docs/Hamlin Garland___They of the High Trails.txt pertenece al centroide  0
+./docs/James Otis___Teddy and Carrots.txt pertenece al centroide  1
+./docs/Charlotte Mary Yonge___The Daisy Chain.txt pertenece al centroide  0
+./docs/John Ruskin___Hortus Inclusus.txt pertenece al centroide  1
+./docs/Henry James___The Awkward Age.txt pertenece al centroide  0
+./docs/Mark Twain___The American Claimant.txt pertenece al centroide  1
+./docs/Henry James___The Beast in the Jungle.txt pertenece al centroide  1
+./docs/Bret Harte___Openings in the Old Trail.txt pertenece al centroide  1
+./docs/Richard Brinsley Sheridan___The Duenna.txt pertenece al centroide  1
+./docs/Zane Grey___The Mysterious Rider.txt pertenece al centroide  0
+./docs/Hector Hugh Munro___The Unbearable Bassington.txt pertenece al centroide  1
+./docs/Herbert George Wells___A Short History of the World.txt pertenece al centroide  1
+./docs/Charles Kingsley___Andromeda and Other Poems.txt pertenece al centroide  1
+./docs/Thomas Carlyle___History of Friedrich II of Prussia, Volume 16.txt pertenece al centroide  1
+./docs/Harold Bindloss___Wyndham's Pal.txt pertenece al centroide  0
+./docs/William Makepeace Thackeray___Barry Lyndon.txt pertenece al centroide  0
+./docs/Bret Harte___By Shore and Sedge.txt pertenece al centroide  1
+./docs/Charlotte Bronte___Villette.txt pertenece al centroide  0
+./docs/Jacob Abbott___Nero.txt pertenece al centroide  1
+./docs/William Dean Howells___Ragged Lady.txt pertenece al centroide  0
+./docs/Robert Louis Stevenson___The Works of Robert Louis Stevenson - Swanston Edition, Volume 1.txt pertenece al centroide  0
+./docs/Andrew Lang___He.txt pertenece al centroide  1
+./docs/John Stuart Mill___The Subjection of Women.txt pertenece al centroide  1
+./docs/Samuel Taylor Coleridge___Coleridge's Literary Remains, Volume 1.txt pertenece al centroide  1
+./docs/P G Wodehouse___A Wodehouse Miscellany.txt pertenece al centroide  1
+./docs/Bret Harte___A Protegee of Jack Hamlin's and Other Stories.txt pertenece al centroide  1
+./docs/Herbert George Wells___The Island of Doctor Moreau.txt pertenece al centroide  0
+./docs/Charlotte Mary Yonge___The Lances of Lynwood.txt pertenece al centroide  1
+./docs/Herbert George Wells___The Invisible Man.txt pertenece al centroide  1
+./docs/Herbert George Wells___Certain Personal Matters.txt pertenece al centroide  1
+./docs/William Blake___Songs of Innocence and Songs of Experience.txt pertenece al centroide  1
+./docs/John Galsworthy___The Silver Box.txt pertenece al centroide  1
+./docs/George Alfred Henty___Dorothy's Double, Volume 2.txt pertenece al centroide  0
+./docs/James Matthew Barrie___Peter Pan in Kensington Gardens, Version 2.txt pertenece al centroide  1
+./docs/Charles Dickens___Holiday Romance.txt pertenece al centroide  1
+./docs/Andrew Lang___Ban and Arriere Ban.txt pertenece al centroide  1
+./docs/James Fenimore Cooper___The Redskins; or, Indian and Injin, Volume 1.txt pertenece al centroide  0
+./docs/Thornton Waldo Burgess___The Boy Scouts in A Trapper's Camp.txt pertenece al centroide  1
+./docs/Andrew Lang___Essays in Little.txt pertenece al centroide  1
+./docs/Anthony Trollope___The Landleaguers.txt pertenece al centroide  0
+./docs/Lyman Frank Baum___Aunt Jane's Nieces in Society.txt pertenece al centroide  1
+./docs/Winston Churchill___The Inside of the Cup, Complete.txt pertenece al centroide  0
+./docs/Alfred Russel Wallace___Is Mars Habitable?.txt pertenece al centroide  1
+./docs/Thornton Waldo Burgess___Lightfoot the Deer.txt pertenece al centroide  1
+./docs/George Bernard Shaw___The Man of Destiny.txt pertenece al centroide  1
+./docs/Charlotte Mary Yonge___Countess Kate.txt pertenece al centroide  1
+./docs/George Alfred Henty___In The Heart Of The Rockies.txt pertenece al centroide  0
+./docs/Robert Louis Stevenson___Kidnapped.txt pertenece al centroide  0
+./docs/Frank Richard Stockton___My Terminal Moraine.txt pertenece al centroide  1
+./docs/P G Wodehouse___Three Men and a Maid.txt pertenece al centroide  1
+./docs/James Otis___The Minute Boys of the Mohawk Valley.txt pertenece al centroide  0
+./docs/William Makepeace Thackeray___The Fitz-Boodle Papers.txt pertenece al centroide  1
+./docs/Oscar Wilde___A Critic in Pall Mall.txt pertenece al centroide  1
+./docs/Thomas Henry Huxley___Note on the Resemblances and Differences in the Structure and the Development of Brain in Man and the Apes.txt pertenece al centroide  1
+./docs/James Matthew Barrie___Dear Brutus.txt pertenece al centroide  1
+./docs/John Bunyan___The Works of John Bunyan.txt pertenece al centroide  2
+./docs/D H Lawrence___Sea and Sardinia.txt pertenece al centroide  1
+./docs/Joseph Conrad___The Point Of Honor.txt pertenece al centroide  1
+./docs/Stephen Leacock___The Dawn of Canadian History - A Chronicle of Aboriginal Canada.txt pertenece al centroide  1
+./docs/Robert Louis Stevenson___The Works of Robert Louis Stevenson - Swanston Edition, Volume 12.txt pertenece al centroide  0
+./docs/William Makepeace Thackeray___The Wolves and the Lamb.txt pertenece al centroide  1
+./docs/Jacob Abbott___King Alfred of England.txt pertenece al centroide  1
+./docs/Joseph Conrad___Typhoon.txt pertenece al centroide  1
+./docs/Lord Tennyson___Idylls of the King.txt pertenece al centroide  0
+./docs/Baronness Orczy___El Dorado.txt pertenece al centroide  0
+./docs/James Otis___Richard of Jamestown.txt pertenece al centroide  1
+./docs/William Wymark Jacobs___Keeping Watch, Night Watches, Part 2.txt pertenece al centroide  1
+./docs/Sir William Schwenck Gilbert___The Bab Ballads.txt pertenece al centroide  1
+./docs/George Alfred Henty___Orange and Green.txt pertenece al centroide  0
+./docs/Oscar Wilde___A Woman of No Importance.txt pertenece al centroide  1
+./docs/Anthony Trollope___Marion Fay.txt pertenece al centroide  0
+./docs/R M Ballantyne___Silver Lake.txt pertenece al centroide  1
+./docs/William Wymark Jacobs___At Sunwich Port.txt pertenece al centroide  1
+./docs/Rudyard Kipling___Under the Deodars.txt pertenece al centroide  1
+./docs/Herbert George Wells___War and the Future.txt pertenece al centroide  1
+./docs/Stephen Leacock___Further Foolishness.txt pertenece al centroide  1
+./docs/Charles Dickens___Our Mutual Friend.txt pertenece al centroide  0
+./docs/Jerome Klapka Jerome___The Observations of Henry.txt pertenece al centroide  1
+./docs/John Maynard Keynes___The Economic Consequences of the Peace.txt pertenece al centroide  1
+./docs/Benjamin Disraeli___The Voyage of Captain Popanilla.txt pertenece al centroide  1
+./docs/Robert Louis Stevenson___A Footnote to History.txt pertenece al centroide  1
+./docs/Bret Harte___Selected Stories.txt pertenece al centroide  0
+./docs/Henry Rider Haggard___Cleopatra.txt pertenece al centroide  0
+./docs/James Matthew Barrie___"Der Tag".txt pertenece al centroide  1
+./docs/P G Wodehouse___The Little Nugget.txt pertenece al centroide  0
+./docs/John Milton___Paradise Lost.txt pertenece al centroide  1
+./docs/Charlotte Mary Yonge___Unknown to History.txt pertenece al centroide  0
+./docs/Edgar Rice Burroughs___The Return of Tarzan.txt pertenece al centroide  1
+./docs/Sir Richard Francis Burton___Two Trips to Gorilla Land and the Cataracts of the Congo, Volume 2.txt pertenece al centroide  1
+./docs/Bret Harte___The Three Partners.txt pertenece al centroide  1
+./docs/George Bernard Shaw___Augustus Does His Bit.txt pertenece al centroide  1
+./docs/Anthony Trollope___The Belton Estate.txt pertenece al centroide  0
+./docs/Lucy Maud Montgomery___Kilmeny of the Orchard.txt pertenece al centroide  1
+./docs/William Somerset Maugham___Liza of Lambeth.txt pertenece al centroide  1
+./docs/William Wymark Jacobs___Salthaven.txt pertenece al centroide  1
+./docs/William Dean Howells___A Likely Story.txt pertenece al centroide  1
+./docs/Mark Twain___In Defense of Harriet Shelley.txt pertenece al centroide  1
+./docs/P G Wodehouse___The Clicking of Cuthbert.txt pertenece al centroide  0
+./docs/Henry Rider Haggard___Benita, An African Romance.txt pertenece al centroide  0
+./docs/Mary Shelley___Mathilda.txt pertenece al centroide  0
+./docs/Henry James___The Sacred Fount.txt pertenece al centroide  0
+./docs/Wilkie Collins___Little Novels.txt pertenece al centroide  0
+./docs/Frank Richard Stockton___The Dusantes.txt pertenece al centroide  1
+./docs/Mark Twain___A Horse's Tale.txt pertenece al centroide  1
+./docs/Charlotte Mary Yonge___Little Lucy's Wonderful Globe.txt pertenece al centroide  1
+./docs/Daniel Defoe___Dickory Cronke.txt pertenece al centroide  1
+./docs/Sir Arthur Conan Doyle___His Last Bow.txt pertenece al centroide  1
+./docs/William Wordsworth___The Poetical Works of William Wordsworth, Volume 3.txt pertenece al centroide  0
+./docs/Henry Rider Haggard___The Wizard.txt pertenece al centroide  1
+./docs/Mark Twain___Christian Science.txt pertenece al centroide  1
+./docs/Jacob Abbott___Peter the Great.txt pertenece al centroide  1
+./docs/T S Eliot___Prufrock and Other Observations.txt pertenece al centroide  1
+./docs/Andrew Lang___The Blue Fairy Book.txt pertenece al centroide  0
+./docs/Henry James___Some Short Stories.txt pertenece al centroide  1
+./docs/Robert Louis Stevenson___The Works of Robert Louis Stevenson - Swanston Edition, Volume 4.txt pertenece al centroide  0
+./docs/Edward Stratemeyer___The Last Cruise of the Spitfire.txt pertenece al centroide  0
+./docs/William Blake___Poems of William Blake.txt pertenece al centroide  1
+./docs/Lyman Frank Baum___Aunt Jane's Nieces Abroad.txt pertenece al centroide  1
+./docs/Bret Harte___A Phyllis of the Sierras.txt pertenece al centroide  1
+./docs/Harold Bindloss___A Prairie Courtship.txt pertenece al centroide  0
+./docs/Washington Irving___Wolfert's Roost and Miscellanies.txt pertenece al centroide  1
+./docs/Robert Louis Stevenson___The Black Arrow.txt pertenece al centroide  0
+./docs/Mary Shelley___Proserpine and Midas.txt pertenece al centroide  1
+./docs/Bret Harte___Tales of Trail and Town.txt pertenece al centroide  1
+./docs/James Otis___Down the Slope.txt pertenece al centroide  1
+./docs/Nathaniel Hawthorne___Beneath an Umbrella (From "Twice Told Tales").txt pertenece al centroide  1
+./docs/Robert Louis Stevenson___A Child's Garden of Verses, Verse 158.txt pertenece al centroide  1
+./docs/Nathaniel Hawthorne___Twice Told Tales.txt pertenece al centroide  1
+./docs/Jerome Klapka Jerome___The Angel and the Author - and Others.txt pertenece al centroide  1
+./docs/Daniel Defoe___From London to Land's End.txt pertenece al centroide  1
+./docs/Charles Kingsley___Twenty-Five Village Sermons.txt pertenece al centroide  1
+./docs/R M Ballantyne___The Giant of the North.txt pertenece al centroide  1
+./docs/G K Chesterton___Appreciations and Criticisms of the Works of Charles Dickens.txt pertenece al centroide  1
+./docs/Charles Kingsley___Madam How and Lady Why.txt pertenece al centroide  1
+./docs/Harold Bindloss___Masters of the Wheat-Lands.txt pertenece al centroide  0
+./docs/R M Ballantyne___Digging for Gold.txt pertenece al centroide  1
+./docs/George Alfred Henty___The Treasure of the Incas.txt pertenece al centroide  0
+./docs/William Wymark Jacobs___The Substitute, Deep Waters, Part 9.txt pertenece al centroide  1
+./docs/Howard Pyle___The Rose of Paradise.txt pertenece al centroide  0
+./docs/Edward Phillips Oppenheim___The Devil's Paw.txt pertenece al centroide  0
+./docs/Daniel Defoe___A True Relation of the Apparition of one Mrs. Veal.txt pertenece al centroide  1
+./docs/Jack London___Tales of the Fish Patrol.txt pertenece al centroide  1
+./docs/Jack London___Before Adam.txt pertenece al centroide  1
+./docs/Henry James___The Europeans.txt pertenece al centroide  0
+./docs/Abraham Lincoln___Lincoln Letters.txt pertenece al centroide  1
+./docs/Charles Dickens___George Silverman's Explanation.txt pertenece al centroide  1
+./docs/Anthony Trollope___The Warden.txt pertenece al centroide  1
+./docs/John Morley___Burke.txt pertenece al centroide  1
+./docs/Thomas Henry Huxley___The Present Condition of Organic Nature.txt pertenece al centroide  1
+./docs/Thomas Henry Huxley___Darwiniana Essays, Volume 2.txt pertenece al centroide  1
+El tiempo de ejecucion fue: 49.5974603494
+
+Process returned 0 (0x0)	execution time : 2976.932 s
+
+
+
+Ejecucion serial con 300 documentos, tomo un tiempo de ejecucion de 50 minutos.
+con K = 3

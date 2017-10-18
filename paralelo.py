@@ -23,10 +23,10 @@ stop_words = set(["the","be","and","of","a","in","to","have","to","it","I","that
     "its","our","two","more","these","want","way","look","first","also","new","because",
     "day","more","use","no","man","find","here","thing","give","many","well"])
 
-docs = glob.glob("./dos/*.txt")
-docs_size = len(docs)
-# docs = glob.glob("./docs/*.txt")
-# docs_size = 4
+# docs = glob.glob("./dos/*.txt")
+# docs_size = len(docs)
+docs = glob.glob("./docs/*.txt")
+docs_size = 10
 
 def asignar(X,centroids):
     C = {}
