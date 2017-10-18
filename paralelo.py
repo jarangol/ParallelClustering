@@ -23,10 +23,10 @@ stop_words = set(["the","be","and","of","a","in","to","have","to","it","I","that
     "its","our","two","more","these","want","way","look","first","also","new","because",
     "day","more","use","no","man","find","here","thing","give","many","well"])
 
-# docs = glob.glob("./dos/*.txt")
-# docs_size = len(docs)
-docs = glob.glob("./docs/*.txt")
-docs_size = 10
+docs = glob.glob("./dos/*.txt")
+docs_size = len(docs)
+# docs = glob.glob("./docs/*.txt")
+# docs_size = 10
 
 def asignar(X,centroids):
     C = {}
@@ -41,56 +41,46 @@ def asignar(X,centroids):
     return C
 
 def mover(centroids,X,K,C):
-    groups = {}
+    # print "X ",X," rank ",rank
+    k_groups = {}
     for doc in X:
-        groups.setdefault(C[doc], []).append(X[doc])
-    # print "groups 0 ",groups[0]," rank ",rank
-    for i in range(size):
-        comm.bcast(groups,root=i)
+        k_groups.setdefault(C[doc], []).append(X[doc])
+    # print "groups ",k_groups," rank ",rank
+    no_ponderado = {}
+    for centroide in k_groups:
+        # print "key: ",centroide, ":", k_groups[centroide]," rank ",rank
+        mean = npy.mean(k_groups[centroide],axis=0)
+        # print "centroide ",centroide," movido de ",centroids[centroide]," a ",mean," rank ",rank
+        no_ponderado[centroide]= [mean,len(k_groups[centroide])]
+    # enviar no ponderado al master
+    comm.send(no_ponderado,dest=master)
+    # print 'enviando no ponderado', no_ponderado, 'rank', rank
+    if rank==master:
+        pre_ponderado = {}
+        for i in range(size):
+            recibido = comm.recv(source=i)
+            for k in recibido:
+                # print "key: ",k, ":", recibido[k]," rank ",rank
+                pre_ponderado.setdefault(k, []).append(recibido[k])
+                # print "quedo en ",k," ",pre_ponderado[k]," rank ",rank
+        print 'ponderado', pre_ponderado
 
-    # for centro in groups:
-    #     print "dic ",dict(groups.items()[0])
-    #     print (centro+size)%size
-    #     comm.send(groups[centro], dest=(centro+size)%size)
-    #     print "centro ",centro, "rank "
-    vectores = []
+        for j,centroide in enumerate(pre_ponderado):
+            total = C.count(centroide[j])
+            ponderado = []
+            for i in centroide:
+                ponderado = map(sum,zip(ponderado,i[0]*(i[1]/total)))
+            centroids[j] = ponderado
+        comm.bcast(centroids, root=master)
 
-    # for i in range(size):
-    vectores += comm.allgather(groups)
-    for k in range(K):
-        if rank == k%size:
-            vector_k  = []
-            for i in vectores:
-                if k in i:
-                    vector_k+=i[k]
-            # print "vectork ",vector_k," rank",rank," k ",k
-            if len(vector_k)>0:
-                mean =  npy.mean(vector_k,axis=0)
-                # print "mean ",mean," k ",k
-                # print "centroide ",k," movido    de ",centroids[k]," a ",mean
-                centroids[k] = mean
-    # print "centroides quedaron ",centroids
+    centroids= comm.allgather(centroids)[size-1]
     return centroids
 
-
-    #     ks = []
-    #     for c in range(len(C)):
-    #         if C[c] == k:
-    #             ks.append(X[c])
-    #     # print "k ",k," ks ",ks
-    #     if len(ks)>0:
-    #         mean =  npy.mean(ks,axis=0)
-    #         print "centroide ",k," movido de ",centroids[k]," a ",mean
-    #         centroids[k] = mean
-        # else:
-            # print "centroide sigue en la posicion ",centroids[k]
-    # print "centroides quedaron ",centroids
-    # return centroids
-
-def kMeans(X,K,maxIters = 10):
+def kMeans(X,K,maxIters = 1):
     centroides = []
     if rank==master:
         centroides = npy.random.rand(K,len(X.values()[0]))
+        print "centroides ",
         comm.bcast(centroides, root=master)
 
     centroides= comm.allgather(centroides)[size-1]
@@ -157,7 +147,7 @@ for i in range(rank,docs_size,size):
 
 
 
-resultado = kMeans(frecuencias,4) #, "centroides"
+resultado = kMeans(frecuencias,2) #, "centroides"
 
 if rank == master:
     print "r",resultado
