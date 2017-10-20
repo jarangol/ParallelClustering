@@ -33,39 +33,46 @@ def asignar(X,centroids):
     for i in X:
         dists = []
         for ci in centroids:
-            # print "ci ",ci," rank ",rank
+            # calculamos la distancia euclidiana del documento i al centroide ci
             dist = npy.linalg.norm(npy.array(X[i])-npy.array(ci))
+            #concatenamos todas las distancias en una lista
             dists.append(dist)
+        # asignamos como centroide el indice del ci de menor distancia al doc i
         C[i] = npy.argmin(dists)
-    # print "asignacion quedó ",C," rank ",rank
     return C
 
 def mover(centroids,X,K,C):
-    # print "X ",X," rank ",rank
+    # Agrupar todos los documentos que pertenecen a cada k
     k_groups = {}
     for doc in X:
         k_groups.setdefault(C[doc], []).append(X[doc])
-    # print "groups ",k_groups," rank ",rank
+
+    # promediar cada grupo del centroide k y multiplicar po el numero de docs
+    # que pertenecen a ese centroide y estan esta maquina.
     pre_ponderado = {}
     for centroide in k_groups:
         mean = npy.mean(k_groups[centroide],axis=0)*len(k_groups[centroide])
         pre_ponderado[centroide]= mean
-    # enviar no ponderado al master
+
+    # enviar pre ponderado al master
     comm.send(pre_ponderado,dest=master)
-    # print 'enviando no ponderado', no_ponderado, 'rank', rank
+
     if rank==master:
+        #agrupamos por centroide los promedios que envia cada uno de los nodos
         agrupado = {}
         for i in range(size):
             recibido = comm.recv(source=i)
             for k in recibido:
                 agrupado.setdefault(k, []).append(recibido[k])
-
+        # se termina la ponderacion al sumar los promedios de cada centroide
+        # y dividiendose por el total de documentos de cada centroide.
         for centroide in agrupado:
             total = C.values().count(centroide)
             ponderado = [sum(i)/float(total) for i in zip(*agrupado[centroide])]
             centroids[centroide] = ponderado
+        # se envia la nueva ubicacion de los centroides a todos
         comm.bcast(centroids, root=master)
-
+    # se actualizan los centroides en cada nodo
     centroids= comm.allgather(centroids)[size-1]
     return centroids
 
