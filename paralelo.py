@@ -46,45 +46,30 @@ def mover(centroids,X,K,C):
     for doc in X:
         k_groups.setdefault(C[doc], []).append(X[doc])
     # print "groups ",k_groups," rank ",rank
-    no_ponderado = {}
+    pre_ponderado = {}
     for centroide in k_groups:
-        # print "key: ",centroide, ":", k_groups[centroide]," rank ",rank
         mean = npy.mean(k_groups[centroide],axis=0)*len(k_groups[centroide])
-        # print "centroide ",centroide," movido de ",centroids[centroide]," a ",mean," rank ",rank
-        no_ponderado[centroide]= mean
+        pre_ponderado[centroide]= mean
     # enviar no ponderado al master
-    comm.send(no_ponderado,dest=master)
+    comm.send(pre_ponderado,dest=master)
     # print 'enviando no ponderado', no_ponderado, 'rank', rank
     if rank==master:
-        pre_ponderado = {}
+        agrupado = {}
         for i in range(size):
             recibido = comm.recv(source=i)
-            print "recibido ",recibido,"from ",i
             for k in recibido:
-                # print "key: ",k, ":", recibido[k]," rank ",rank
-                pre_ponderado.setdefault(k, []).append(recibido[k])
-                # print "quedo en ",k," ",pre_ponderado[k]," rank ",rank
-        print 'ponderado', pre_ponderado
+                agrupado.setdefault(k, []).append(recibido[k])
 
-        for centroide in pre_ponderado:
-            print "centroide ",centroide
+        for centroide in agrupado:
             total = C.values().count(centroide)
-            ponderado = []
-            print pre_ponderado[centroide]#[0][0]
-            for i in pre_ponderado[centroide]:
-                print "normal ",i," rank ",rank
-                div = i/float(total)
-                # voy aca
-                print "div ",div," rank ",rank
-                ponderado = map(sum,zip(ponderado,div))
-                print "ponderado ",ponderado," rank ",rank
-            # centroids[centroide] = ponderado
-        # comm.bcast(centroids, root=master)
+            ponderado = [sum(i)/float(total) for i in zip(*agrupado[centroide])]
+            centroids[centroide] = ponderado
+        comm.bcast(centroids, root=master)
 
     centroids= comm.allgather(centroids)[size-1]
     return centroids
 
-def kMeans(X,K,maxIters = 1):
+def kMeans(X,K,maxIters = 10):
     centroides = []
     if rank==master:
         centroides = npy.random.rand(K,len(X.values()[0]))
@@ -152,14 +137,11 @@ for i in range(rank,docs_size,size):
     frecuencias[i] = doc_frec
     # print i," frecuencias ",frecuencias[i]
 
-
-
-resultado = kMeans(frecuencias,2) #, "centroides"
+resultado = kMeans(frecuencias,5) #, "centroides"
 
 if rank == master:
-    print "r",resultado
-    print docs
-
+    # print "r",resultado
+    # print docs
     for val in resultado:
         print docs[val], "pertenece al centroide ",resultado[val]
     tiempo_final = time()
