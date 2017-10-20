@@ -49,9 +49,9 @@ def mover(centroids,X,K,C):
     no_ponderado = {}
     for centroide in k_groups:
         # print "key: ",centroide, ":", k_groups[centroide]," rank ",rank
-        mean = npy.mean(k_groups[centroide],axis=0)
+        mean = npy.mean(k_groups[centroide],axis=0)*len(k_groups[centroide])
         # print "centroide ",centroide," movido de ",centroids[centroide]," a ",mean," rank ",rank
-        no_ponderado[centroide]= [mean,len(k_groups[centroide])]
+        no_ponderado[centroide]= mean
     # enviar no ponderado al master
     comm.send(no_ponderado,dest=master)
     # print 'enviando no ponderado', no_ponderado, 'rank', rank
@@ -59,19 +59,27 @@ def mover(centroids,X,K,C):
         pre_ponderado = {}
         for i in range(size):
             recibido = comm.recv(source=i)
+            print "recibido ",recibido,"from ",i
             for k in recibido:
                 # print "key: ",k, ":", recibido[k]," rank ",rank
                 pre_ponderado.setdefault(k, []).append(recibido[k])
                 # print "quedo en ",k," ",pre_ponderado[k]," rank ",rank
         print 'ponderado', pre_ponderado
 
-        for j,centroide in enumerate(pre_ponderado):
-            total = C.count(centroide[j])
+        for centroide in pre_ponderado:
+            print "centroide ",centroide
+            total = C.values().count(centroide)
             ponderado = []
-            for i in centroide:
-                ponderado = map(sum,zip(ponderado,i[0]*(i[1]/total)))
-            centroids[j] = ponderado
-        comm.bcast(centroids, root=master)
+            print pre_ponderado[centroide]#[0][0]
+            for i in pre_ponderado[centroide]:
+                print "normal ",i," rank ",rank
+                div = i/float(total)
+                # voy aca
+                print "div ",div," rank ",rank
+                ponderado = map(sum,zip(ponderado,div))
+                print "ponderado ",ponderado," rank ",rank
+            # centroids[centroide] = ponderado
+        # comm.bcast(centroids, root=master)
 
     centroids= comm.allgather(centroids)[size-1]
     return centroids
@@ -80,7 +88,6 @@ def kMeans(X,K,maxIters = 1):
     centroides = []
     if rank==master:
         centroides = npy.random.rand(K,len(X.values()[0]))
-        print "centroides ",
         comm.bcast(centroides, root=master)
 
     centroides= comm.allgather(centroides)[size-1]
