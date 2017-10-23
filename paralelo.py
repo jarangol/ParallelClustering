@@ -1,6 +1,6 @@
 #coding=utf-8
 from mpi4py import MPI
-import glob,re
+import glob,re,random
 import numpy as npy
 from time import time
 
@@ -77,29 +77,32 @@ def mover(centroids,X,K,C):
     return centroids
 
 def kMeans(X,K,maxIters = 10):
-    centroides = []
-    if rank==master:
-        centroides = npy.random.rand(K,len(X.values()[0]))
-        comm.bcast(centroides, root=master)
-
-    centroides= comm.allgather(centroides)[size-1]
-    for i in range(maxIters):
-        # if rank == master:
-            # print "iter ",i
-        # assinacion de centroides
-        C = asignar(X,centroides)
-        comm.send(C,dest=master)
+    if len(X)<K:
+        if rank == master:
+            print "El K debe ser >= a numero de docs"
+    else:
+        centroides = []
         if rank==master:
-            for i in range(size):
-                C.update(comm.recv(source=i))
-            comm.bcast(C, root=master)
-
-        C = comm.allgather(C)[size-1]
-        # calculamos el promedio para cada centroide
-        centroides = mover(centroides,X,K,C)
-        comm.bcast(centroides, root=master)
+            centroides = random.sample(X.values(), K)
+            comm.bcast(centroides, root=master)
         centroides= comm.allgather(centroides)[size-1]
-    return C
+        for i in range(maxIters):
+            # if rank == master:
+                # print "iter ",i
+            # assinacion de centroides
+            C = asignar(X,centroides)
+            comm.send(C,dest=master)
+            if rank==master:
+                for i in range(size):
+                    C.update(comm.recv(source=i))
+                comm.bcast(C, root=master)
+
+            C = comm.allgather(C)[size-1]
+            # calculamos el promedio para cada centroide
+            centroides = mover(centroides,X,K,C)
+            comm.bcast(centroides, root=master)
+            centroides= comm.allgather(centroides)[size-1]
+        return C
 
 def create_array(inp):
     infile = open(inp, 'r')
@@ -147,10 +150,9 @@ for i in range(rank,docs_size,size):
 resultado = kMeans(frecuencias,5) #, "centroides"
 
 if rank == master:
-    # print "r",resultado
-    # print docs
-    for val in resultado:
-        print docs[val], "pertenece al centroide ",resultado[val]
-    tiempo_final = time()
-    tiempo_ejecucion = tiempo_final - tiempo_inicial
-    print 'El tiempo de ejecucion fue:',tiempo_ejecucion/60
+    if resultado != None:
+        for val in resultado:
+            print docs[val], "pertenece al centroide ",resultado[val]
+        tiempo_final = time()
+        tiempo_ejecucion = tiempo_final - tiempo_inicial
+        print 'El tiempo de ejecucion fue:',tiempo_ejecucion/60
