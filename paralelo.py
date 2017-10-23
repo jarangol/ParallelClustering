@@ -1,6 +1,6 @@
 #coding=utf-8
 from mpi4py import MPI
-import glob,re
+import glob,re,random
 import numpy as npy
 from time import time
 
@@ -14,6 +14,7 @@ name = MPI.Get_processor_name()
 master = size-1
 #inicializacion de variables
 
+<<<<<<< HEAD
 stop_words = set(["the","be","and","of","a","in","to","have","to","it","I","that","for","you","he",
     "with","on","do","say","this","they","at","but","we","his","from","that","not",
     "n't","by","she","or","as","what","go","their","can","who","get","if","would",
@@ -22,6 +23,80 @@ stop_words = set(["the","be","and","of","a","in","to","have","to","it","I","that
     "just","see","him","your","come","could","now","than","like","other","how","then",
     "its","our","two","more","these","want","way","look","first","also","new","because",
     "day","more","use","no","man","find","here","thing","give","many","well"])
+=======
+stop_words = set(['secondly', 'all', 'consider', 'whoever', 'four', 'edu', 'go', 'causes',
+                     'seemed', 'whose', 'certainly', 'everywhere', 'containing', 'to', 'does', 'th',
+                     'under', 'sorry', "a's", 'sent', 'far', 'every', 'yourselves', "we'll", 'did',
+                     'cause', "they've", 'try', "it'll", "i'll", 'says', "you'd", 'likely', 'further',
+                     'even', "n't", 'what', 'appear', 'brief', 'goes', 'sup', 'new', 'ever',
+                     "c'mon", 'respectively', 'never', 'here', 'let', 'others', "hadn't",
+                     'along', "aren't", 'allows', "i'd", 'howbeit', 'usually', 'que', "i'm",
+                     'changes', 'thats', 'hither', 'via', 'followed', 'merely', 'viz',
+                     'everybody', 'use', 'from', 'would', 'contains', 'two', 'next', 'few',
+                     'therefore', 'taken', 'themselves', 'thru', 'tell', 'more', 'knows', 'clearly',
+                     'becomes', 'hereby', 'it', "ain't", 'particular', 'known', 'must', 'me',
+                     'none', 'this', 'getting', 'anywhere', 'nine', 'can', 'of', 'following',
+                     'my', 'example', 'indicated', 'give', "didn't", 'near', 'indicates',
+                     'something', 'want', 'needs', 'rather', 'six', 'how', 'instead',
+                     'okay', 'tried', 'may', 'after', 'them', 'hereupon', 'such', 'man',
+                     'a', 'third', 'whenever', 'maybe', 'appreciate', 'cannot', 'so',
+                     'specifying', 'allow', 'keeps', 'looking', "that's", 'help', "don't",
+                     'indeed', 'over', 'mainly', 'soon', 'course', 'through', 'looks',
+                     'still', 'its', 'before', 'thank', "he's", 'selves', 'inward', 'actually',
+                     'better', 'willing', 'thanx', 'ours', 'might', "haven't", 'then', 'non',
+                     'someone', 'somebody', 'thereby', "you've", 'they', 'not', 'now', 'day',
+                     'nor', 'gets', 'hereafter', 'always', 'reasonably', 'whither', 'each',
+                     'went', "isn't", 'mean', 'everyone', 'doing', 'eg', 'ex', 'year', 'our',
+                     'beyond', 'out', 'by', 'furthermore', 'since', 'rd', 're', 'seriously',
+                     "shouldn't", "they'll", 'got', 'get', 'forth', 'thereupon', "doesn't",
+                     'little', 'quite', 'whereupon', 'besides', 'ask', 'anyhow', 'could',
+                     'tries', 'keep', 'thing', 'ltd', 'hence', 'onto', 'think', 'first',
+                     'already', 'seeming', 'thereafter', 'yourself', 'done', 'another',
+                     'awfully', "you're", 'given', 'indicate', 'inasmuch', 'least', 'anyone',
+                     'their', 'too', 'gives', 'mostly', 'that', 'nobody', 'took', 'immediate',
+                     'regards', 'somewhat', 'off', 'believe', 'herself', 'than', "here's",
+                     'unfortunately', 'gotten', 'second', 'were', 'toward', 'anyways', 'and',
+                     'well', 'beforehand', 'say', 'unlikely', 'have', 'need', 'seen', 'seem',
+                     'saw', 'any', 'relatively', 'zero', 'thoroughly', 'latter', "i've", 'downwards',
+                     'aside', 'thorough', 'also', 'take', 'which', 'exactly', 'unless', 'shall',
+                     'who', "where's", 'most', 'eight', 'amongst', 'nothing', 'why', 'sub',
+                     'especially', 'noone', 'later', "you'll", 'definitely', 'normally',
+                     'came', 'saying', 'particularly', 'anyway', 'find', 'fifth', 'one',
+                     'outside', 'should', 'only', 'going', 'specify', 'sure', 'do', 'his',
+                     'above', 'meanwhile', 'hopefully', 'overall', 'truly', "they'd", 'ones',
+                     'nearly', 'despite', 'during', 'him', 'regarding', 'qv', 'twice', 'she',
+                     'contain', "won't", 'where', 'greetings', 'ignored', "hasn't", 'namely',
+                     'are', 'best', 'wonder', 'said', 'away', 'currently', 'please', "wasn't",
+                     'behind', "there's", 'various', 'between', 'probably', 'neither', 'across',
+                     'available', 'we', 'however', 'come', 'both', 'last', 'many', "wouldn't",
+                     'thence', 'according', 'against', 'etc', 'became', 'com', "can't", 'otherwise',
+                     'among', 'presumably', 'co', 'afterwards', 'had', 'whatever', 'alone',
+                     "couldn't", 'moreover', 'throughout', 'considering', 'sensible', 'described',
+                     "it's", 'three', 'been', 'whom', 'much', 'hardly', "it'd", 'wants', 'corresponding',
+                     'latterly', 'concerning', 'else', 'hers', 'former', 'those', 'myself', 'novel', 'look',
+                     'these', 'nd', 'value', 'will', 'while', 'theres', 'seven', 'whereafter',
+                     'almost', 'wherever', 'is', 'thus', 'herein', 'cant', 'vs', 'in', 'ie', 'if',
+                     'different', 'perhaps', 'insofar', 'make', 'same', 'wherein', 'beside',
+                     'several', "weren't", 'used', 'see', 'somewhere', 'I', 'upon', 'uses',
+                     'kept', 'whereby', 'nevertheless', 'whole', 'itself', 'anybody', 'obviously',
+                     'without', 'comes', 'very', 'the', 'yours', 'lest', 'just', 'less', 'being',
+                     'able', 'liked', 'thanks', 'useful', 'yes', 'yet', 'unto', "we've", 'seems',
+                     'except', 'has', 'ought', "t's", 'around', "who's", 'possible', 'five',
+                     'know', 'using', 'apart', 'name', 'necessary', 'like', 'follows', 'either',
+                     'become', 'therein', 'because', 'old', 'often', 'people', 'some', 'somehow',
+                     'self', 'towards', 'specified', 'ourselves', 'happens', 'for', 'though',
+                     'per', 'everything', 'asking', 'provides', 'tends', 'be', 'nowhere',
+                     'although', 'entirely', 'on', 'about', 'ok', 'anything', 'oh', 'theirs',
+                     'whence', 'plus', 'consequently', 'or', 'seeing', 'own', 'formerly',
+                     'into', 'within', 'down', 'appropriate', 'right', "c's", 'your', 'her',
+                     'there', 'accordingly', 'inner', 'way', 'was', 'himself', 'elsewhere',
+                     'enough', 'becoming', 'but', 'hi', 'trying', 'with', 'he', "they're",
+                     'whether', 'wish', 'up', 'us', 'until', 'placed', 'below', 'un', "we'd",
+                     'gone', 'sometimes', 'associated', 'certain', 'am', 'an', 'as', 'sometime',
+                     'at', 'et', 'inc', 'again', 'no', 'whereas', 'when', 'lately', 'other',
+                     'you', 'really', "what's", 'regardless', 'welcome', "let's", 'together',
+                     'hello', "we're", 'time', 'serious', 'having', 'once'])
+>>>>>>> b1c1345b1656cad3fb82de62aabf6c7b50facb4f
 
 # docs = glob.glob("./dos/*.txt")
 # docs_size = len(docs)
@@ -33,81 +108,77 @@ def asignar(X,centroids):
     for i in X:
         dists = []
         for ci in centroids:
-            # print "ci ",ci," rank ",rank
+            # calculamos la distancia euclidiana del documento i al centroide ci
             dist = npy.linalg.norm(npy.array(X[i])-npy.array(ci))
+            #concatenamos todas las distancias en una lista
             dists.append(dist)
+        # asignamos como centroide el indice del ci de menor distancia al doc i
         C[i] = npy.argmin(dists)
-    # print "asignacion quedó ",C," rank ",rank
     return C
 
 def mover(centroids,X,K,C):
-    # print "X ",X," rank ",rank
+    # Agrupar todos los documentos que pertenecen a cada k
     k_groups = {}
     for doc in X:
         k_groups.setdefault(C[doc], []).append(X[doc])
-    # print "groups ",k_groups," rank ",rank
-    no_ponderado = {}
+
+    # promediar cada grupo del centroide k y multiplicar po el numero de docs
+    # que pertenecen a ese centroide y estan esta maquina.
+    pre_ponderado = {}
     for centroide in k_groups:
-        # print "key: ",centroide, ":", k_groups[centroide]," rank ",rank
         mean = npy.mean(k_groups[centroide],axis=0)*len(k_groups[centroide])
-        # print "centroide ",centroide," movido de ",centroids[centroide]," a ",mean," rank ",rank
-        no_ponderado[centroide]= mean
-    # enviar no ponderado al master
-    comm.send(no_ponderado,dest=master)
-    # print 'enviando no ponderado', no_ponderado, 'rank', rank
+        pre_ponderado[centroide]= mean
+
+    # enviar pre ponderado al master
+    comm.send(pre_ponderado,dest=master)
+
     if rank==master:
-        pre_ponderado = {}
+        #agrupamos por centroide los promedios que envia cada uno de los nodos
+        agrupado = {}
         for i in range(size):
             recibido = comm.recv(source=i)
-            print "recibido ",recibido,"from ",i
             for k in recibido:
-                # print "key: ",k, ":", recibido[k]," rank ",rank
-                pre_ponderado.setdefault(k, []).append(recibido[k])
-                # print "quedo en ",k," ",pre_ponderado[k]," rank ",rank
-        print 'ponderado', pre_ponderado
-
-        for centroide in pre_ponderado:
-            print "centroide ",centroide
+                agrupado.setdefault(k, []).append(recibido[k])
+        # se termina la ponderacion al sumar los promedios de cada centroide
+        # y dividiendose por el total de documentos de cada centroide.
+        for centroide in agrupado:
             total = C.values().count(centroide)
-            ponderado = []
-            print pre_ponderado[centroide]#[0][0]
-            for i in pre_ponderado[centroide]:
-                print "normal ",i," rank ",rank
-                div = i/float(total)
-                # voy aca
-                print "div ",div," rank ",rank
-                ponderado = map(sum,zip(ponderado,div))
-                print "ponderado ",ponderado," rank ",rank
-            # centroids[centroide] = ponderado
-        # comm.bcast(centroids, root=master)
-
+            ponderado = [sum(i)/float(total) for i in zip(*agrupado[centroide])]
+            centroids[centroide] = ponderado
+        # se envia la nueva ubicacion de los centroides a todos
+        comm.bcast(centroids, root=master)
+    # se actualizan los centroides en cada nodo
     centroids= comm.allgather(centroids)[size-1]
     return centroids
 
-def kMeans(X,K,maxIters = 1):
-    centroides = []
-    if rank==master:
-        centroides = npy.random.rand(K,len(X.values()[0]))
-        comm.bcast(centroides, root=master)
-
-    centroides= comm.allgather(centroides)[size-1]
-    for i in range(maxIters):
-        # if rank == master:
-            # print "iter ",i
-        # assinacion de centroides
-        C = asignar(X,centroides)
-        comm.send(C,dest=master)
+def kMeans(X,K,maxIters = 10):
+    if len(X)<K:
+        if rank == master:
+            print "El K debe ser >= a numero de docs"
+    else:
+        centroides = []
         if rank==master:
-            for i in range(size):
-                C.update(comm.recv(source=i))
-            comm.bcast(C, root=master)
-
-        C = comm.allgather(C)[size-1]
-        # calculamos el promedio para cada centroide
-        centroides = mover(centroides,X,K,C)
-        comm.bcast(centroides, root=master)
+            centroides = random.sample(X.values(), K)
+            comm.bcast(centroides, root=master)
         centroides= comm.allgather(centroides)[size-1]
-    return C
+        for i in range(maxIters):
+            print "iteracion ",i
+            # if rank == master:
+                # print "iter ",i
+            # assinacion de centroides
+            C = asignar(X,centroides)
+            comm.send(C,dest=master)
+            if rank==master:
+                for i in range(size):
+                    C.update(comm.recv(source=i))
+                comm.bcast(C, root=master)
+
+            C = comm.allgather(C)[size-1]
+            # calculamos el promedio para cada centroide
+            centroides = mover(centroides,X,K,C)
+            comm.bcast(centroides, root=master)
+            centroides= comm.allgather(centroides)[size-1]
+        return C
 
 def create_array(inp):
     infile = open(inp, 'r')
@@ -152,16 +223,18 @@ for i in range(rank,docs_size,size):
     frecuencias[i] = doc_frec
     # print i," frecuencias ",frecuencias[i]
 
+<<<<<<< HEAD
 
 
 resultado = kMeans(frecuencias,3) #, "centroides"
+=======
+resultado = kMeans(frecuencias,5) #, "centroides"
+>>>>>>> b1c1345b1656cad3fb82de62aabf6c7b50facb4f
 
 if rank == master:
-    print "r",resultado
-    print docs
-
-    for val in resultado:
-        print docs[val], "pertenece al centroide ",resultado[val]
-    tiempo_final = time()
-    tiempo_ejecucion = tiempo_final - tiempo_inicial
-    print 'El tiempo de ejecucion fue:',tiempo_ejecucion/60
+    if resultado != None:
+        for val in resultado:
+            print docs[val], "pertenece al centroide ",resultado[val]
+        tiempo_final = time()
+        tiempo_ejecucion = tiempo_final - tiempo_inicial
+        print 'El tiempo de ejecucion fue:',tiempo_ejecucion/60
