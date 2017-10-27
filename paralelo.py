@@ -87,10 +87,10 @@ stop_words = set(['secondly', 'all', 'consider', 'whoever', 'four', 'edu', 'go',
                      'you', 'really', "what's", 'regardless', 'welcome', "let's", 'together',
                      'hello', "we're", 'time', 'serious', 'having', 'once'])
 
+docs = glob.glob("./dos/*.txt")
+docs_size = len(docs)
 # docs = glob.glob("./dos/*.txt")
-# docs_size = len(docs)
-docs = glob.glob("./docs/*.txt")
-docs_size = 10
+# docs_size = 10
 
 def asignar(X,centroids):
     C = {}
@@ -141,33 +141,30 @@ def mover(centroids,X,K,C):
     return centroids
 
 def kMeans(X,K,maxIters = 10):
-    if len(X)<K:
-        if rank == master:
-            print "El K debe ser >= a numero de docs"
-    else:
-        centroides = []
-        if rank==master:
-            centroides = random.sample(X.values(), K)
-            comm.bcast(centroides, root=master)
-        centroides= comm.allgather(centroides)[size-1]
-        for i in range(maxIters):
-            print "iteracion ",i
-            # if rank == master:
-                # print "iter ",i
-            # assinacion de centroides
-            C = asignar(X,centroides)
-            comm.send(C,dest=master)
-            if rank==master:
-                for i in range(size):
-                    C.update(comm.recv(source=i))
-                comm.bcast(C, root=master)
 
-            C = comm.allgather(C)[size-1]
-            # calculamos el promedio para cada centroide
-            centroides = mover(centroides,X,K,C)
-            comm.bcast(centroides, root=master)
-            centroides= comm.allgather(centroides)[size-1]
-        return C
+    centroides = []
+    if rank==master:
+        centroides = npy.random.rand(K,len(X.values()[0]))
+        comm.bcast(centroides, root=master)
+    centroides= comm.allgather(centroides)[size-1]
+    for i in range(maxIters):
+        print "iteracion ",i
+        # if rank == master:
+            # print "iter ",i
+        # assinacion de centroides
+        C = asignar(X,centroides)
+        comm.send(C,dest=master)
+        if rank==master:
+            for i in range(size):
+                C.update(comm.recv(source=i))
+            comm.bcast(C, root=master)
+
+        C = comm.allgather(C)[size-1]
+        # calculamos el promedio para cada centroide
+        centroides = mover(centroides,X,K,C)
+        comm.bcast(centroides, root=master)
+        centroides= comm.allgather(centroides)[size-1]
+    return C
 
 def create_array(inp):
     infile = open(inp, 'r')
