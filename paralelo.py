@@ -14,16 +14,6 @@ name = MPI.Get_processor_name()
 master = size-1
 #inicializacion de variables
 
-<<<<<<< HEAD
-stop_words = set(["the","be","and","of","a","in","to","have","to","it","I","that","for","you","he",
-    "with","on","do","say","this","they","at","but","we","his","from","that","not",
-    "n't","by","she","or","as","what","go","their","can","who","get","if","would",
-    "her","all","my","make","about","know","will","as","up","one","time","there",
-    "year","so","think","when","which","them","some","me","people","take","out","into",
-    "just","see","him","your","come","could","now","than","like","other","how","then",
-    "its","our","two","more","these","want","way","look","first","also","new","because",
-    "day","more","use","no","man","find","here","thing","give","many","well"])
-=======
 stop_words = set(['secondly', 'all', 'consider', 'whoever', 'four', 'edu', 'go', 'causes',
                      'seemed', 'whose', 'certainly', 'everywhere', 'containing', 'to', 'does', 'th',
                      'under', 'sorry', "a's", 'sent', 'far', 'every', 'yourselves', "we'll", 'did',
@@ -96,7 +86,6 @@ stop_words = set(['secondly', 'all', 'consider', 'whoever', 'four', 'edu', 'go',
                      'at', 'et', 'inc', 'again', 'no', 'whereas', 'when', 'lately', 'other',
                      'you', 'really', "what's", 'regardless', 'welcome', "let's", 'together',
                      'hello', "we're", 'time', 'serious', 'having', 'once'])
->>>>>>> b1c1345b1656cad3fb82de62aabf6c7b50facb4f
 
 # docs = glob.glob("./dos/*.txt")
 # docs_size = len(docs)
@@ -223,13 +212,7 @@ for i in range(rank,docs_size,size):
     frecuencias[i] = doc_frec
     # print i," frecuencias ",frecuencias[i]
 
-<<<<<<< HEAD
-
-
 resultado = kMeans(frecuencias,3) #, "centroides"
-=======
-resultado = kMeans(frecuencias,5) #, "centroides"
->>>>>>> b1c1345b1656cad3fb82de62aabf6c7b50facb4f
 
 if rank == master:
     if resultado != None:
